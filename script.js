@@ -1,7 +1,6 @@
 // Assignment code here
 var characterLength = 8;
-var produce = [];
-
+var producePass = [];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -19,32 +18,20 @@ function writePassword() {
   }
   }
 
-// generate the password loop 
-function generatePassword() {
-
-  var securePass= '';
-  for(var i = 0; i < characterLength; i++) {
-    var randomPass = Math.floor(Math.random() * producePass.length);
-    securePass = securePass + producePass[randomPass];
-  }
-  return securePass
-}
-
-  //prompt the user for the password criteria
+ //prompt the user for the password criteria
 function getCriteria() {
     producePass = [];
+    // getting the output of the user for the characters in password 
     characterLength = parseInt(prompt("How many characters do you want your password to contain?"));
   
-
-
     //password length may be from 8 characters to 128
 
     if (characterLength < 8 || characterLength > 128)  {
       alert("Charecter length has to be a number between 8 - 128");
       return false; 
     }
-
-
+    
+    
    //add the lowercase uppsecase numbers and special characters 
 
 var numbers = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" ];
@@ -71,10 +58,16 @@ var uppercaseLetters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
     return true; 
   }
 
-  // display the password in the text box 
+// generate the password loop 
 
+function generatePassword() {
+
+  var securePass= '';
+  for(var i = 0; i < characterLength; i++) {
+    var randomPass = Math.floor(Math.random() * producePass.length);
+    securePass = securePass + producePass[randomPass];
+  }
+  return securePass
+}
 // Add event listener to generate button
-
-
-
 generateBtn.addEventListener("click", writePassword);
