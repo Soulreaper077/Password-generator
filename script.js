@@ -2,32 +2,20 @@
 var characterLength = 8;
 var producePass = [];
 // Get references to the #generate element
-
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-
-  // window prompt 
-  var askBoxes = getCriteria();
-  
-  if (askBoxes) {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password; 
-  }
-  }
-//add the lowercase uppsecase numbers and special characters 
-var numbers = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" ];
-var symbols =   [ " @", "!", "#", "$", "%", "&", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", , "`", "|", "~" ];
-var lowercaseLetters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
-var uppercaseLetters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
 //prompt the user for the password criteria
 function getCriteria() {
     producePass = [];
     // getting the output of the user for the characters in password 
     characterLength = parseInt(prompt("How many characters do you want your password to contain?"));
   
+//add the lowercase uppsecase numbers and special characters 
+let numbers = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" ];
+let symbols =   [ " @", "!", "#", "$", "%", "&", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", , "`", "|", "~" ];
+const lowercaseLetters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
+const uppercaseLetters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
+
     //password length may be from 8 characters to 128
 
     if (characterLength < 8 || characterLength > 128)  {
@@ -50,10 +38,22 @@ function getCriteria() {
     }
 
     return true; 
-  }
-
+}
 // generate the password loop 
 
+// Write password to the #password input
+function writePassword() {
+
+  // window prompt 
+  var askBoxes = getCriteria();
+  
+  if (askBoxes) {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password; 
+  }
+  }
+  
 function generatePassword() {
 
   var securePass= '';
