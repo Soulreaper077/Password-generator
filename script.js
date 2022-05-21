@@ -1,8 +1,8 @@
 // Assignment code here
 var characterLength = 8;
 var producePass = [];
-
 // Get references to the #generate element
+
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -17,8 +17,12 @@ function writePassword() {
   passwordText.value = password; 
   }
   }
-
- //prompt the user for the password criteria
+//add the lowercase uppsecase numbers and special characters 
+var numbers = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" ];
+var symbols =   [ " @", "!", "#", "$", "%", "&", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", , "`", "|", "~" ];
+var lowercaseLetters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
+var uppercaseLetters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
+//prompt the user for the password criteria
 function getCriteria() {
     producePass = [];
     // getting the output of the user for the characters in password 
@@ -30,18 +34,8 @@ function getCriteria() {
       alert("Charecter length has to be a number between 8 - 128");
       return false; 
     }
-    
-    
-   //add the lowercase uppsecase numbers and special characters 
-
-var numbers = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" ];
-var symbols =   [ " @ " ] ;
-//'!', '#', '$', '%', '&', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '\','`', '|',  '~' 
-var lowercaseLetters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
-var uppercaseLetters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
-
     //generate a password based on the criteria
-
+// continuation of the window prompt command in order to get the criteria 
     if (confirm("Would you like your password to contain lowercase letters?")) {
       producePass = producePass.concat(lowercaseLetters);
     }
@@ -63,6 +57,7 @@ var uppercaseLetters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
 function generatePassword() {
 
   var securePass= '';
+  // creates the loop for the charecter length using math floor to round off whole number 
   for(var i = 0; i < characterLength; i++) {
     var randomPass = Math.floor(Math.random() * producePass.length);
     securePass = securePass + producePass[randomPass];
