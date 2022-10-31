@@ -3,7 +3,8 @@ this is the challenge for module 3, we were instructed to make a password genera
 
 ## deployed website 
 [Password Generator](https://soulreaper077.github.io/Password-generator/)
-click here!
+
+click here! ^^^^^^^
 
 
 ### pictures of the website 
